@@ -11,9 +11,10 @@
 # cd sagemaker-ssh-helper
 #########################
 
-# activate the environment
-eval "$(conda shell.bash hook)"
-conda activate base
+# may use source to execute instead of sub-shell
+# activate the environment 
+# eval "$(conda shell.bash hook)"
+# conda activate base
 
 pip install -q .
 
@@ -33,7 +34,7 @@ echo caller id - $caller_id
 # initialize ssm
 sm-ssh-ide init-ssm $caller_id
 
-# start ide
+# start ide 
 sm-ssh-ide start
 
 # list the KernalGateway app id

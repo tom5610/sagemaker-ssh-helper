@@ -451,7 +451,17 @@ feature, which is also helpful in such a scenario.
 1. Inside SageMaker Studio checkout (unpack) this repo and run [SageMaker_SSH_IDE.ipynb](SageMaker_SSH_IDE.ipynb), or, you may open the related image terminal and run a shell script to enable the container ssm agent.
 
 ```
-./start_studio_ssh_ide.sh
+source ./start_studio_ssh_ide.sh
+```
+
+> Once the command is run once, we may just use the below to run ide or ssm-agent since the packages are installed.
+
+```
+# start the ide
+sm-ssh-ide start
+
+# start ssm-agent
+sm-ssh-ide ssm-agent
 ```
 
 2. On the local machine, make sure that the latest AWS CLI **v2** is installed, as described in 
