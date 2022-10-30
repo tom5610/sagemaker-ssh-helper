@@ -1,6 +1,7 @@
 /venv/
 /sagemaker_ssh_helper.egg-info/
 /sagemaker_ssh_helper/.ipynb_checkpoints/
+/sagemaker_ssh_helper/__pycache__/
 /dist
 /tests/opt_ml/model/
 /tests/opt_ml/code/
