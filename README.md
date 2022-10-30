@@ -448,7 +448,11 @@ feature, which is also helpful in such a scenario.
 
 ## <a name="studio"></a>Local IDE integration with SageMaker Studio over SSH for PyCharm / VSCode
 
-1. Inside SageMaker Studio checkout (unpack) this repo and run [SageMaker_SSH_IDE.ipynb](SageMaker_SSH_IDE.ipynb)
+1. Inside SageMaker Studio checkout (unpack) this repo and run [SageMaker_SSH_IDE.ipynb](SageMaker_SSH_IDE.ipynb), or, you may open the related image terminal and run a shell script to enable the container ssm agent.
+
+```
+./start_studio_ssh_ide.sh
+```
 
 2. On the local machine, make sure that the latest AWS CLI **v2** is installed, as described in 
 [the documentation for AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
@@ -500,6 +504,24 @@ with `sm-ssh-ide start` command.
 
 You can also start the VNC session to [vnc://localhost:5901](vnc://localhost:5901) (e.g. on macOS with Screen Sharing app)
 and run IDE or any other GUI app on the remote desktop instead of your local machine.
+
+#### Local IDE to Training Job
+
+* Once figure out the managed instance id, you may run below command to create ssh connection.
+```
+# port forwarding
+INSTANCE_ID={instance_id}
+JOB_PORT=10023 # using a different port if you have already doing studio ide connection.
+sm-local-start-ssh "$INSTANCE_ID" \
+    -L localhost:$JOB_PORT:localhost:22
+```
+
+Then, you below command to connect to the training container.
+```
+# connect to host
+JOB_PORT=10023
+ssh -i ~/.ssh/sagemaker-ssh-gw -p $JOB_PORT root@localhost```
+```
 
 ### Troubleshooting
 

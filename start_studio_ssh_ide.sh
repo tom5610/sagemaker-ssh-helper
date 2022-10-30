@@ -1,12 +1,15 @@
 #!/bin/sh
 
-# download sagemaker-ssh-helper package
-if [ ! -d "/root/sagemaker-ssh-helper" ]; then
-  git clone https://github.com/aws-samples/sagemaker-ssh-helper.git
-fi
+#######################
+# comment out for now and only use for blank setup while running under '/root' folder
+# download sagemaker-ssh-helper package 
+# if [ ! -d "/root/sagemaker-ssh-helper" ]; then
+#   git clone https://github.com/aws-samples/sagemaker-ssh-helper.git
+# fi
 
-# installation
-cd sagemaker-ssh-helper
+# # installation
+# cd sagemaker-ssh-helper
+#########################
 
 # activate the environment
 eval "$(conda shell.bash hook)"
